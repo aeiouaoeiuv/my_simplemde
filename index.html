@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simplemde</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/simplemde.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/atom-one-dark.css">
+	<link rel="stylesheet" type="text/css" href="./css/mine-style.css">
+	<script type="text/javascript" src="./js/simplemde.min.js"></script>
+	<script type="text/javascript" src="./js/highlight.pack.js"></script>
+</head>
+<body>
+	<textarea id="mde"></textarea>
+</body>
+</html>
+
+<script type="text/javascript">
+var simplemde = new SimpleMDE({
+	autofocus: true,
+	autosave: {
+		enabled: false,
+		uniqueId: "MyUniqueID",
+		delay: 1000,
+	},
+	blockStyles: {
+		bold: "__",
+		italic: "_"
+	},
+	element: document.getElementById("mde"),
+	forceSync: true,
+	hideIcons: ["guide"],
+	indentWithTabs: true,
+	// initialValue: "Hello world!",
+	insertTexts: {
+		horizontalRule: ["", "\n\n-----\n\n"],
+		image: ["![](http://", ")"],
+		link: ["[", "](http://)"],
+		table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
+	},
+	lineWrapping: false,
+	parsingConfig: {
+		allowAtxHeaderWithoutSpace: true,
+		strikethrough: false,
+		underscoresBreakWords: true,
+	},
+	placeholder: "Type here...",
+	// previewRender: function(plainText) {
+	// 	return customMarkdownParser(plainText); // Returns HTML from a custom parser
+	// },
+	// previewRender: function(plainText, preview) { // Async method
+	// 	setTimeout(function(){
+	// 		preview.innerHTML = customMarkdownParser(plainText);
+	// 	}, 250);
+
+	// 	return "Loading...";
+	// },
+	promptURLs: true,
+	renderingConfig: {
+		singleLineBreaks: false,
+		codeSyntaxHighlighting: true,
+	},
+	// shortcuts: {
+	// 	drawTable: "Cmd-Alt-T"
+	// },
+	showIcons: ["code", "table"],
+	spellChecker: true,
+	status: true,
+	status: ["autosave", "lines", "words", "cursor"], // Optional usage
+	// status: ["autosave", "lines", "words", "cursor", {
+	// 	className: "keystrokes",
+	// 	defaultValue: function(el) {
+	// 		this.keystrokes = 0;
+	// 		el.innerHTML = "0 Keystrokes";
+	// 	},
+	// 	onUpdate: function(el) {
+	// 		el.innerHTML = ++this.keystrokes + " Keystrokes";
+	// 	}
+	// }], // Another optional usage, with a custom status bar item that counts keystrokes
+	styleSelectedText: false,
+	tabSize: 4,
+	toolbar: [
+		"bold",
+		"italic",
+		"strikethrough",
+		"|",
+		// "heading",
+		// "heading-smaller",
+		// "heading-bigger",
+		"heading-1",
+		"heading-2",
+		"heading-3",
+		"|",
+		"code",
+		// {
+		// 	name: "inlineCode",
+		// 	action: drawInlineCode,
+		// 	className: "fa fa-star", // Look for a suitable icon
+		// 	title: "inline code",
+		// },
+		"quote",
+		"unordered-list",
+		"ordered-list",
+		"|",
+		// "clean-block",
+		"link",
+		"image",
+		"table",
+		"horizontal-rule",
+		"|",
+		"preview",
+		"side-by-side",
+		"fullscreen",
+		// "|",
+		// "guide",
+	],
+	toolbarTips: true,
+});
+
+// function drawInlineCode(editor) {
+
+// 	var cm = editor.codemirror;
+// 	var output = '';
+// 	var selectedText = cm.getSelection();
+// 	var text = selectedText || '';
+
+// 	output = '`' + text + '`';
+// 	cm.replaceSelection(output);
+
+// }
+</script>
